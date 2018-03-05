@@ -35,6 +35,9 @@ const About = ({ data, loading, error }) => (
         ))}
       </View>
     )}
+    <View style={styles.footerWrapper}>
+      <Text style={styles.footer}>© RED Academy 2017</Text>
+    </View>
   </ScrollView>
 );
 

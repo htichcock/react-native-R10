@@ -31,7 +31,6 @@ class AboutScreen extends Component {
   render() {
     return (
       <View>
-        <StatusBar barStyle="light-content" />
         <About
           data={this.props.codeOfConductData}
           loading={this.props.isLoading}

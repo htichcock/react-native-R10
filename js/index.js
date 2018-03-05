@@ -11,9 +11,9 @@ import {
   NavigationContext
 } from "@expo/ex-navigation";
 import { Provider } from "react-redux";
+import { StatusBar } from "react-native";
 
 import Router from "./navigation/router";
-import About from "./screens/About";
 import Store from "./redux/store";
 
 const navigationContext = new NavigationContext({
@@ -25,6 +25,7 @@ export default class App extends Component {
     return (
       <Provider store={Store}>
         <NavigationProvider context={navigationContext}>
+          <StatusBar barStyle="light-content" />
           <StackNavigation initialRoute={Router.getRoute("layout")} />
         </NavigationProvider>
       </Provider>
