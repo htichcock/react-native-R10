@@ -3,14 +3,16 @@ import { connect } from "react-redux";
 // import PropTypes from 'prop-types';
 import HeaderBG from "../../components/HeaderBackground";
 import Session from "./Session";
-import { color } from "../../config/styles";
+import { color, font } from "../../config/styles";
 import { fetchSpeakersData } from "../../redux/modules/speakers";
 
 class SessionScreen extends Component {
   static route = {
     navigationBar: {
       title: "Session",
-      tintColor: color.black
+      tintColor: color.white,
+      renderBackground: () => <HeaderBG />,
+      titleStyle: { fontFamily: font.regular, color: color.white }
     }
   };
 

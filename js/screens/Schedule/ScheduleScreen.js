@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import HeaderBG from "../../components/HeaderBackground";
 import { fetchSessionsData } from "../../redux/modules/sessions";
 import Schedule from "./Schedule";
-import { color } from "../../config/styles";
+import { color, font } from "../../config/styles";
 
 class ScheduleScreen extends Component {
   constructor() {
@@ -21,7 +21,9 @@ class ScheduleScreen extends Component {
   static route = {
     navigationBar: {
       title: "Schedule",
-      tintColor: color.black
+      tintColor: color.white,
+      renderBackground: () => <HeaderBG />,
+      titleStyle: { fontFamily: font.regular, color: color.white }
     }
   };
 

@@ -22,7 +22,7 @@ class AboutScreen extends Component {
   static route = {
     navigationBar: {
       title: "About",
-      tintColor: color.black,
+      tintColor: color.white,
       renderBackground: () => <HeaderBG />,
       titleStyle: { fontFamily: font.regular, color: color.white }
     }
