@@ -9,7 +9,8 @@ import { color, font } from "../../config/styles";
 
 class AboutScreen extends Component {
   componentDidMount() {
-    this.props.codeOfConductData && this.props.dispatch(fetchCodeOfConduct());
+    !this.props.codeOfConductData.length &&
+      this.props.dispatch(fetchCodeOfConduct());
   }
 
   static route = {

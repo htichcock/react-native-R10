@@ -8,7 +8,7 @@ import { color, font } from "../../config/styles";
 
 class ScheduleScreen extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchSessionsData());
+    !this.props.sessionsData.length && this.props.dispatch(fetchSessionsData());
   }
 
   static route = {

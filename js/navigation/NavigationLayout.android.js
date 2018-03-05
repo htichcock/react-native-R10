@@ -39,6 +39,17 @@ export default class NavigationLayout extends Component {
             initialRoute={Router.getRoute("schedule")}
           />
         </DrawerNavigationItem>
+        <DrawerNavigationItem
+          id="faves"
+          title="Faves"
+          renderTitle={isSelected => this.renderTitle(isSelected, "Faves")}
+          renderIcon={isSelected => this.renderIcon(isSelected, "md-heart")}
+        >
+          <StackNavigation
+            navigatorUID="faves"
+            initialRoute={Router.getRoute("faves")}
+          />
+        </DrawerNavigationItem>
 
         <DrawerNavigationItem
           id="about"
