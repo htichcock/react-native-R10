@@ -10,7 +10,7 @@ import {
 import Loader from "../../components/Loader";
 import GradientButton from "../../components/GradientButton";
 import styles from "./styles";
-import logo from "../../assets/images/r10_logo.png";
+import logo from "../../assets/images/iTunesArtwork.png";
 import { goToSpeaker } from "../../helpers/navigationHelpers";
 import { color } from "../../config/styles";
 
@@ -26,17 +26,19 @@ const Session = ({ data, loading, error, speaker = {} }) => (
     ) : (
       <TouchableHighlight
         onPress={() => {
-          goToSpeaker({ speaker });
+          speaker.name && goToSpeaker({ speaker });
         }}
         activeOpacity={1}
-        underlayColor={color.lightGrey}
+        underlayColor={speaker.name ? color.lightGrey : color.white}
       >
         <View style={styles.speakerWrapper}>
           <Image
             style={styles.avatar}
             source={speaker.image ? { uri: speaker.image } : logo}
           />
-          <Text style={styles.speaker}>{speaker.name}</Text>
+          <Text style={styles.speaker}>
+            {speaker.name ? speaker.name : "R10 Conference"}
+          </Text>
         </View>
       </TouchableHighlight>
     )}

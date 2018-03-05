@@ -7,15 +7,8 @@ import Schedule from "./Schedule";
 import { color, font } from "../../config/styles";
 
 class ScheduleScreen extends Component {
-  constructor() {
-    super();
-    this.fetchData = this.fetchData.bind(this);
-  }
-  fetchData() {
-    this.props.dispatch(fetchSessionsData());
-  }
   componentDidMount() {
-    this.fetchData();
+    this.props.dispatch(fetchSessionsData());
   }
 
   static route = {

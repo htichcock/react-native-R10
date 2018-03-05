@@ -8,15 +8,8 @@ import { fetchCodeOfConduct } from "../../redux/modules/about";
 import { color, font } from "../../config/styles";
 
 class AboutScreen extends Component {
-  constructor() {
-    super();
-    this.fetchData = this.fetchData.bind(this);
-  }
-  fetchData() {
-    this.props.dispatch(fetchCodeOfConduct());
-  }
   componentDidMount() {
-    this.fetchData();
+    this.props.codeOfConductData && this.props.dispatch(fetchCodeOfConduct());
   }
 
   static route = {

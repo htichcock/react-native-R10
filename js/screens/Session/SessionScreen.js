@@ -15,16 +15,9 @@ class SessionScreen extends Component {
       titleStyle: { fontFamily: font.regular, color: color.white }
     }
   };
-
-  constructor() {
-    super();
-    this.fetchData = this.fetchData.bind(this);
-  }
-  fetchData() {
-    this.props.dispatch(fetchSpeakersData(this.props.sessionData.speaker));
-  }
   componentDidMount() {
-    this.fetchData();
+    !this.props.speaker &&
+      this.props.dispatch(fetchSpeakersData(this.props.sessionData.speaker));
   }
 
   render() {
@@ -33,7 +26,6 @@ class SessionScreen extends Component {
         data={this.props.sessionData}
         speaker={this.props.speaker}
         loading={this.props.isLoading}
-        error={this.props.error}
       />
     );
   }

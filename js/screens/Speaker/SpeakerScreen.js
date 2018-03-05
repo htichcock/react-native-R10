@@ -4,10 +4,6 @@ import { NavigationStyles } from "@expo/ex-navigation";
 import Speaker from "./Speaker";
 
 export default class SpeakerScreen extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
   static route = {
     styles: {
       ...NavigationStyles.SlideVertical

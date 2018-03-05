@@ -6,11 +6,17 @@ export default class AnimatedDescription extends Component {
   constructor() {
     super();
     this.state = {
-      top: new Animated.Value(-350)
+      top: new Animated.Value(-350),
+      open: false
     };
   }
 
   componentWillReceiveProps(nextProps) {
+    nextProps.open
+      ? this.setState({ open: !this.state.open })
+      : setTimeout(() => {
+          this.setState({ open: !this.state.open });
+        }, 333);
     nextProps.open
       ? Animated.timing(this.state.top, {
           toValue: 0,
@@ -26,17 +32,15 @@ export default class AnimatedDescription extends Component {
       <Animated.View
         style={{
           top: this.state.top,
-          height: this.state.top.interpolate({
-            inputRange: [-351, -349],
-            outputRange: [0, 1]
-          }),
           flex: this.state.top.interpolate({
-            inputRange: [-349, -348],
+            inputRange: [-350, -349],
             outputRange: [0, 1]
           })
         }}
       >
-        <Text style={styles.description}>{this.props.text}</Text>
+        {this.state.open && (
+          <Text style={styles.description}>{this.props.text}</Text>
+        )}
       </Animated.View>
     );
   }
