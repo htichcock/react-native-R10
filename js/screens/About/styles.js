@@ -5,6 +5,10 @@ export default StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10
   },
+  forefront: {
+    backgroundColor: color.white,
+    zIndex: 3
+  },
   logo: {
     height: 86,
     justifyContent: "center",

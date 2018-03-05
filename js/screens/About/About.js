@@ -9,18 +9,20 @@ import Loader from "../../components/Loader";
 
 const About = ({ data, loading, error }) => (
   <ScrollView style={styles.container}>
-    <View style={styles.logo}>
-      <Image source={Logo} />
+    <View style={styles.forefront}>
+      <View style={styles.logo}>
+        <Image source={Logo} />
+      </View>
+      <Text style={styles.p}>
+        R10 is a conference that focuses on just about any topic related to dev.
+      </Text>
+      <Text style={styles.h}>Date & Venue</Text>
+      <Text style={styles.p}>
+        The R10 conference will take place on Tuesday, June 27, 2017 in
+        Vancouver, BC.
+      </Text>
+      <Text style={styles.h}>Code of Conduct</Text>
     </View>
-    <Text style={styles.p}>
-      R10 is a conference that focuses on just about any topic related to dev.
-    </Text>
-    <Text style={styles.h}>Date & Venue</Text>
-    <Text style={styles.p}>
-      The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver,
-      BC.
-    </Text>
-    <Text style={styles.h}>Code of Conduct</Text>
     {loading ? (
       <Loader />
     ) : (

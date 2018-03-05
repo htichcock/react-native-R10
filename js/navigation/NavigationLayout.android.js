@@ -77,7 +77,9 @@ export default class NavigationLayout extends Component {
       <Text
         style={{
           color: isSelected ? color.purple : color.mediumGrey,
-          fontFamily: font.light
+          fontFamily: font.regular,
+          fontSize: 20,
+          paddingLeft: 10
         }}
       >
         {title}
@@ -89,7 +91,7 @@ export default class NavigationLayout extends Component {
     return (
       <Icon
         name={name}
-        size={24}
+        size={28}
         style={{
           color: isSelected ? color.purple : color.mediumGrey
         }}

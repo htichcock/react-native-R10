@@ -20,7 +20,6 @@ export default StyleSheet.create({
     borderBottomColor: color.lightGrey
   },
   title: {
-    color: color.black,
     fontFamily: font.regular,
     paddingBottom: 5
   },
