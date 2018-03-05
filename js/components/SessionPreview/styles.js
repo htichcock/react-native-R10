@@ -30,6 +30,10 @@ export default StyleSheet.create({
     fontSize: 12
   },
   heart: {
-    color: color.red
+    color: color.red,
+    position: "absolute",
+    right: 10,
+    bottom: 10,
+    fontSize: 15
   }
 });

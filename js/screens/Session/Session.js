@@ -4,7 +4,8 @@ import {
   ScrollView,
   View,
   TouchableHighlight,
-  Image
+  Image,
+  Platform
 } from "react-native";
 // import PropTypes from 'prop-types';
 import Loader from "../../components/Loader";
@@ -13,10 +14,22 @@ import styles from "./styles";
 import logo from "../../assets/images/iTunesArtwork.png";
 import { goToSpeaker } from "../../helpers/navigationHelpers";
 import { color } from "../../config/styles";
+import { addFave, removeFave } from "../../redux/modules/sessions";
+import Icon from "react-native-vector-icons/Ionicons";
 
-const Session = ({ data, loading, error, speaker = {} }) => (
+const Session = ({ data, loading, faves, dispatch, speaker = {} }) => (
   <ScrollView style={styles.container}>
     <Text style={styles.location}>{data.location}</Text>
+    {faves &&
+      faves.includes(data.session_id) && (
+        <Icon
+          name={Platform.select({
+            ios: "ios-heart",
+            android: "md-heart"
+          })}
+          style={styles.heart}
+        />
+      )}
     <Text style={styles.title}>{data.title}</Text>
     <Text style={styles.time}>{data.start_time}</Text>
     <Text style={styles.description}>{data.description}</Text>
@@ -42,7 +55,18 @@ const Session = ({ data, loading, error, speaker = {} }) => (
         </View>
       </TouchableHighlight>
     )}
-    <GradientButton text={"Add to Faves"} />
+    <GradientButton
+      text={
+        faves && faves.includes(data.session_id)
+          ? "Remove from Faves"
+          : "Add to Faves"
+      }
+      onPress={() => {
+        faves && faves.includes(data.session_id)
+          ? dispatch(removeFave(data.session_id))
+          : dispatch(addFave(data.session_id));
+      }}
+    />
   </ScrollView>
 );
 

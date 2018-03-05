@@ -44,5 +44,11 @@ export default StyleSheet.create({
   speaker: {
     fontFamily: font.regular,
     paddingLeft: 10
+  },
+  heart: {
+    color: color.red,
+    position: "absolute",
+    right: 0,
+    fontSize: 18
   }
 });

@@ -1,11 +1,19 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View, Text } from "react-native";
+import SessionPreview from "../../components/SessionPreview";
+import Loader from "../../components/Loader";
 // import PropTypes from 'prop-types';
+import styles from "./styles";
 
-const Faves = () => (
-  <View>
-    <Text>Faves ......... . . .. </Text>
-  </View>
-);
+const Faves = ({ data, loading, error }) =>
+  loading ? (
+    <Loader />
+  ) : data && data.length ? (
+    <SessionPreview data={data} uid="faves" />
+  ) : (
+    <View style={styles.wrapper}>
+      <Text style={styles.text}>You have no favourites yet!</Text>
+    </View>
+  );
 
 export default Faves;

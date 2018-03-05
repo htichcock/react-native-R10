@@ -26,6 +26,8 @@ class SessionScreen extends Component {
         data={this.props.sessionData}
         speaker={this.props.speaker}
         loading={this.props.isLoading}
+        faves={this.props.faves}
+        dispatch={this.props.dispatch}
       />
     );
   }
@@ -34,6 +36,7 @@ class SessionScreen extends Component {
 const mapStateToProps = (state, ownProps) => ({
   isLoading: state.speakers.isLoading,
   speaker: state.speakers.speakersData[ownProps.sessionData.speaker],
-  error: state.speakers.error
+  error: state.speakers.error,
+  faves: state.sessions.faves
 });
 export default connect(mapStateToProps)(SessionScreen);
