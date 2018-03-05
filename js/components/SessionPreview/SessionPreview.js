@@ -2,11 +2,15 @@ import React from "react";
 import { Text, View, TouchableHighlight, SectionList } from "react-native";
 import { formatSessionData, formatUnixDate } from "../../helpers/formatHelpers";
 import { goToSession } from "../../helpers/navigationHelpers";
+import styles from "./styles";
+import { color } from "../../config/styles";
 
 const Sessions = ({ data }) => (
   <SectionList
     renderItem={({ item }) => (
       <TouchableHighlight
+        activeOpacity={1}
+        underlayColor={color.lightGrey}
         onPress={() => {
           goToSession("schedule", {
             ...item,
@@ -14,14 +18,14 @@ const Sessions = ({ data }) => (
           });
         }}
       >
-        <View>
-          <Text>{item.title}</Text>
-          <Text>{item.location}</Text>
+        <View style={styles.sessionWrapper}>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.location}>{item.location}</Text>
         </View>
       </TouchableHighlight>
     )}
     renderSectionHeader={({ section }) => (
-      <Text>{formatUnixDate(section.title)}</Text>
+      <Text style={styles.header}>{formatUnixDate(section.title)}</Text>
     )}
     keyExtractor={(item, index) => index}
     sections={formatSessionData(data)}
