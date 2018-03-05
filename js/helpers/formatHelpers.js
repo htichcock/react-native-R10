@@ -19,7 +19,8 @@ export const formatSessionData = sessions => {
 
 export const formatUnixDate = date => {
   const newDate = new Date(date * 1000);
-  const hours = newDate.getUTCHours() - 7;
+  let hours = newDate.getUTCHours() - 7;
+  if (hours < 0) hours = 24 + hours;
   const minutes = newDate.getMinutes();
   return `${hours > 12 ? hours - 12 : hours}:${
     minutes === 0 ? "00" : minutes
