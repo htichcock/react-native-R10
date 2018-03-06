@@ -1,9 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import SessionPreview from "../../components/SessionPreview";
 import Loader from "../../components/Loader";
-// import PropTypes from 'prop-types';
 
-const Schedule = ({ data, loading, error }) =>
+const Schedule = ({ data, loading }) =>
   loading ? <Loader /> : <SessionPreview data={data} uid="schedule" />;
 
+Schedule.propTypes = {
+  data: PropTypes.array,
+  loading: PropTypes.bool
+};
 export default Schedule;

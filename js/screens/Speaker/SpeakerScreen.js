@@ -1,16 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavigationStyles } from "@expo/ex-navigation";
-// import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import Speaker from "./Speaker";
 
-export default class SpeakerScreen extends Component {
-  static route = {
-    styles: {
-      ...NavigationStyles.SlideVertical
-    }
-  };
+const SpeakerScreen = ({ speakerData }) => (
+  <Speaker speaker={speakerData.speaker} />
+);
 
-  render() {
-    return <Speaker speaker={this.props.speakerData.speaker} />;
+SpeakerScreen.route = {
+  styles: {
+    ...NavigationStyles.SlideVertical
   }
-}
+};
+
+SpeakerScreen.propTypes = {
+  speakerData: PropTypes.object
+};
+
+export default SpeakerScreen;

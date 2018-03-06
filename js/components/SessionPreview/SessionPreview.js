@@ -6,6 +6,7 @@ import {
   SectionList,
   Platform
 } from "react-native";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { formatSessionData, formatUnixDate } from "../../helpers/formatHelpers";
 import { goToSession } from "../../helpers/navigationHelpers";
@@ -50,6 +51,12 @@ const SessionPreview = ({ data, faves, uid }) => (
     sections={formatSessionData(data)}
   />
 );
+
+SessionPreview.propTypes = {
+  data: PropTypes.array,
+  faves: PropTypes.array,
+  uid: PropTypes.string
+};
 
 const mapStateToProps = state => ({
   faves: state.sessions.faves

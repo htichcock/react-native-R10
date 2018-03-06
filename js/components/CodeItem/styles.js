@@ -1,6 +1,5 @@
 import { StyleSheet } from "react-native";
 import { color, font } from "../../config/styles";
-import aboutReducer from "../../redux/modules/about";
 
 export default StyleSheet.create({
   heading: {

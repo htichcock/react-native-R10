@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, View, ScrollView, Image, ActivityIndicator } from "react-native";
+import { Text, View, ScrollView, Image } from "react-native";
+import PropTypes from "prop-types";
 import Logo from "../../assets/images/r10_logo.png";
 // import PropTypes from 'prop-types';
 import styles from "./styles";
@@ -7,7 +8,7 @@ import styles from "./styles";
 import CodeItem from "../../components/CodeItem";
 import Loader from "../../components/Loader";
 
-const About = ({ data, loading, error }) => (
+const About = ({ data, loading }) => (
   <ScrollView style={styles.container}>
     <View style={styles.forefront}>
       <View style={styles.logo}>
@@ -41,5 +42,10 @@ const About = ({ data, loading, error }) => (
     </View>
   </ScrollView>
 );
+
+About.propTypes = {
+  data: PropTypes.array,
+  loading: PropTypes.bool
+};
 
 export default About;

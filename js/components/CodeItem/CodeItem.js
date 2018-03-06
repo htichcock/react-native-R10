@@ -6,6 +6,7 @@ import {
   Platform,
   UIManager
 } from "react-native";
+import PropTypes from "prop-types";
 import styles from "./styles";
 
 import AnimatedDescription from "./AnimatedDescription";
@@ -22,6 +23,10 @@ export default class CodeItem extends Component {
       open: false
     };
   }
+  static propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string
+  };
   toggleOpen() {
     this.setState({ open: !this.state.open });
   }

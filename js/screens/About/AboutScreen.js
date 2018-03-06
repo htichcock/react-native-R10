@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { StatusBar, View } from "react-native";
+import { View } from "react-native";
 import PropTypes from "prop-types";
 import HeaderBG from "../../components/HeaderBackground";
 import About from "./About";
@@ -12,6 +12,11 @@ class AboutScreen extends Component {
     !this.props.codeOfConductData.length &&
       this.props.dispatch(fetchCodeOfConduct());
   }
+  static propTypes = {
+    codeOfConductData: PropTypes.array,
+    dispatch: PropTypes.func,
+    isLoading: PropTypes.bool
+  };
 
   static route = {
     navigationBar: {
@@ -28,7 +33,6 @@ class AboutScreen extends Component {
         <About
           data={this.props.codeOfConductData}
           loading={this.props.isLoading}
-          error={this.props.error}
         />
       </View>
     );

@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
+import PropTypes from "prop-types";
 import LinearGradient from "react-native-linear-gradient";
 import { color } from "../../config/styles";
 import styles from "./styles";
@@ -21,5 +22,10 @@ const GradientButton = ({ text, onPress }) => (
     </TouchableOpacity>
   </View>
 );
+
+GradientButton.propTypes = {
+  text: PropTypes.string,
+  onPress: PropTypes.func
+};
 
 export default GradientButton;

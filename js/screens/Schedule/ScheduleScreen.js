@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import HeaderBG from "../../components/HeaderBackground";
 import { fetchSessionsData } from "../../redux/modules/sessions";
 import Schedule from "./Schedule";
@@ -12,7 +12,12 @@ class ScheduleScreen extends Component {
     !this.props.sessionsData.length && this.props.dispatch(fetchSessionsData());
     !this.props.faves.length && this.props.dispatch(setFavesByRealm());
   }
-
+  static propTypes = {
+    sessionsData: PropTypes.array,
+    dispatch: PropTypes.func,
+    faves: PropTypes.array,
+    isLoading: PropTypes.bool
+  };
   static route = {
     navigationBar: {
       title: "Schedule",

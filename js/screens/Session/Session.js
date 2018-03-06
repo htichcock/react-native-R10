@@ -7,7 +7,7 @@ import {
   Image,
   Platform
 } from "react-native";
-// import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import Loader from "../../components/Loader";
 import GradientButton from "../../components/GradientButton";
 import styles from "./styles";
@@ -69,5 +69,11 @@ const Session = ({ data, loading, faves, dispatch, speaker = {} }) => (
     />
   </ScrollView>
 );
-
+Session.propTypes = {
+  data: PropTypes.object,
+  loading: PropTypes.bool,
+  faves: PropTypes.array,
+  dispatch: PropTypes.func,
+  speaker: PropTypes.object
+};
 export default Session;

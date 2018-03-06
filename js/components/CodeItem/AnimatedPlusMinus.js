@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Animated, View } from "react-native";
-
+import PropTypes from "prop-types";
 import styles from "./styles";
 export default class AnimatedPlusMinus extends Component {
   constructor() {
@@ -10,6 +10,9 @@ export default class AnimatedPlusMinus extends Component {
       rotate: new Animated.Value(0)
     };
   }
+  static propTypes = {
+    open: PropTypes.bool
+  };
 
   componentWillReceiveProps(nextProps) {
     nextProps.open

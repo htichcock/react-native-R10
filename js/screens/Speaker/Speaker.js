@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Linking
 } from "react-native";
-// import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/Ionicons";
 import styles from "./styles";
 import logo from "../../assets/images/r10_logo.png";
@@ -44,13 +44,14 @@ const Speaker = ({ speaker }) => (
       <GradientButton
         text={"Read More on Wikipedia"}
         onPress={() => {
-          Linking.openURL(speaker.url).catch(err =>
-            console.error("An error occurred", err)
-          );
+          Linking.openURL(speaker.url);
         }}
       />
     </View>
   </ScrollView>
 );
 
+Speaker.propTypes = {
+  speaker: PropTypes.object
+};
 export default Speaker;

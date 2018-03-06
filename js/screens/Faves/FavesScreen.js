@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-// import PropTypes from 'prop-types';
 import { connect } from "react-redux";
-
+import PropTypes from "prop-types";
 import { fetchSessionsData } from "../../redux/modules/sessions";
 import Faves from "./Faves";
 import HeaderBG from "../../components/HeaderBackground";
@@ -14,7 +13,12 @@ class FavesScreen extends Component {
     super();
     this.state = {};
   }
-
+  static propTypes = {
+    sessionsData: PropTypes.array,
+    dispatch: PropTypes.func,
+    faves: PropTypes.array,
+    isLoading: PropTypes.bool
+  };
   componentDidMount() {
     !this.props.sessionsData.length && this.props.dispatch(fetchSessionsData());
     !this.props.faves.length && this.props.dispatch(setFavesByRealm());
