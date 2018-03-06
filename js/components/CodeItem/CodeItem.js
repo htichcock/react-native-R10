@@ -1,12 +1,23 @@
 import React, { Component } from "react";
-import { Text, View, TouchableWithoutFeedback } from "react-native";
+import {
+  Text,
+  View,
+  TouchableWithoutFeedback,
+  Platform,
+  UIManager
+} from "react-native";
 import styles from "./styles";
 
 import AnimatedDescription from "./AnimatedDescription";
+import AnimatedPlusMinus from "./AnimatedPlusMinus";
 
 export default class CodeItem extends Component {
   constructor() {
     super();
+    if (Platform.OS === "android") {
+      UIManager.setLayoutAnimationEnabledExperimental &&
+        UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
     this.state = {
       open: false
     };
@@ -23,9 +34,7 @@ export default class CodeItem extends Component {
           }}
         >
           <View style={styles.heading}>
-            <Text style={[styles.headingText, { width: 10 }]}>
-              {this.state.open ? "-" : "+"}
-            </Text>
+            <AnimatedPlusMinus open={this.state.open} />
             <Text style={styles.headingText}>{this.props.title}</Text>
           </View>
         </TouchableWithoutFeedback>

@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { color, font } from "../../config/styles";
+import aboutReducer from "../../redux/modules/about";
 
 export default StyleSheet.create({
   heading: {
@@ -10,20 +11,35 @@ export default StyleSheet.create({
   headingText: {
     color: color.purple,
     fontFamily: font.regular,
-    marginRight: 5,
-    marginTop: 9,
+    marginRight: 15,
     marginBottom: 9,
     backgroundColor: color.white,
-    zIndex: 2
+    zIndex: 2,
+    top: 0,
+    left: 15
   },
   description: {
     fontFamily: font.light,
     lineHeight: 20,
-    marginTop: 9,
     marginBottom: 9,
     backgroundColor: color.white
   },
   container: {
     overflow: "hidden"
+  },
+  horiBar: {
+    width: 9,
+    height: 1,
+    position: "absolute",
+    top: 8,
+    backgroundColor: color.purple
+  },
+  vertBar: {
+    width: 1,
+    height: 9,
+    position: "absolute",
+    left: 4,
+    top: 4,
+    backgroundColor: color.purple
   }
 });
