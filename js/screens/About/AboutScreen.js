@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { StatusBar, View } from "react-native";
-// import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 import HeaderBG from "../../components/HeaderBackground";
 import About from "./About";
 import { fetchCodeOfConduct } from "../../redux/modules/about";
